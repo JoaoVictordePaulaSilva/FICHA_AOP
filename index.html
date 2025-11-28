@@ -18,17 +18,19 @@
 
 <h1>FICHA DE ORDEM PARANORMAL</h1>
 
-<!-- Nomes -->
-<div class="names">
-  <div>
-    <label>Nome do Personagem</label><br>
+<!-- Nomes — versão ritualística aprimorada -->
+<div class="names names-ritual">
+  <div class="name-block">
+    <label>Nome do Personagem</label>
     <input id="nome_personagem" placeholder="Personagem">
   </div>
-  <div>
-    <label>Nome do Jogador</label><br>
+
+  <div class="name-block">
+    <label>Nome do Jogador</label>
     <input id="nome_jogador" placeholder="Jogador">
   </div>
 </div>
+
 
 <div class="layout">
 
@@ -38,10 +40,10 @@
     <div class="pericias-list" id="pericias"></div>
   </div>
 
-  <!-- coluna direita: UM item da grid que contém os DOIS cards empilhados -->
+  <!-- coluna direita: ATRIBUTOS + INFORMAÇÕES + ATAQUES -->
   <div class="right-column"> 
 
-    <!-- CARD A — ATRIBUTOS (primeiro card) -->
+    <!-- CARD A — ATRIBUTOS -->
     <div class="card card-attributes">
       <h2 class="titulo-secao">Atributos</h2>
 
@@ -55,7 +57,6 @@
         </svg>
       </div>
 
-      <!-- Inputs dos atributos -->
       <div class="attr-inputs">
         <div><label>FOR</label><input type="number" id="FOR" min="0" max="10" value="1"></div>
         <div><label>AGI</label><input type="number" id="AGI" min="0" max="10" value="1"></div>
@@ -69,7 +70,6 @@
     <div class="card card-infos">
       <h2 class="titulo-secao">Informações do Personagem</h2>
 
-      <!-- ORIGEM / CLASSE / TRILHA -->
       <div class="info-fields">
         <div class="info-field">
           <label>Origem</label>
@@ -87,9 +87,7 @@
         </div>
       </div>
 
-      <!-- NEX / NÍVEL / LIMITE DE PD POR RODADA -->
       <div class="char-meta">
-
         <div class="meta-field">
           <label>NEX (%)</label>
           <input type="number" id="nex" placeholder="Ex: 35">
@@ -104,13 +102,10 @@
           <label>Limite de PD / Rodada</label>
           <input type="number" id="limite_pd" placeholder="Ex: 2">
         </div>
-
       </div>
 
-      <!-- PV / PD / DEF -->
       <div class="game-info">
 
-        <!-- PV -->
         <div class="game-box">
           <label>PV (Pontos de Vida)</label>
           <div class="double-field">
@@ -119,7 +114,6 @@
           </div>
         </div>
 
-        <!-- PD -->
         <div class="game-box">
           <label>PD (Pontos de Determinação)</label>
           <div class="double-field">
@@ -128,7 +122,6 @@
           </div>
         </div>
 
-        <!-- DEF -->
         <div class="game-box">
           <label>DEF</label>
           <div class="def-field">
@@ -138,27 +131,27 @@
         </div>
 
       </div>
-        <!-- RESISTÊNCIAS / PROTEÇÃO -->
+
       <div class="extra-info">
         <div class="extra-field">
           <label>Resistências</label>
-          <textarea id="resistencias" placeholder="Ex: Resistência a Morte, +2 contra morte"></textarea>
+          <textarea id="resistencias" placeholder="Ex: Resistência a morte"></textarea>
         </div>
 
         <div class="extra-field">
           <label>Proteção</label>
-          <textarea id="protecao" placeholder="Ex: Armadura Leve (+5 de proteção)"></textarea>
+          <textarea id="protecao" placeholder="Ex: Armadura leve (+5)"></textarea>
         </div>
       </div>
 
     </div>
-    <!-- CARD C — ATAQUES (5 linhas fixas) -->
+
+    <!-- CARD C — ATAQUES -->
     <div class="card card-attacks">
       <h2 class="titulo-secao">Ataques</h2>
 
       <div class="ataques-list">
 
-        <!-- 5 linhas de ataque -->
         <div class="ataque-row">
           <input type="text" placeholder="Nome do ataque">
           <input type="text" placeholder="Teste (ex: 3d20 +5)">
@@ -195,13 +188,23 @@
         </div>
 
       </div>
-    </div>
+    </div> <!-- fim card ataques -->
 
 
+  </div><!-- fim right-column -->
 
-  </div> <!-- fim right-column -->
+</div><!-- fim layout -->
 
-</div> <!-- fim layout -->
+
+<!-- CARD INDEPENDENTE — HABILIDADES E RITUAIS (AGORA LARGURA TOTAL) -->
+<div class="card card-habilidades">
+  <h2 class="titulo-secao">Habilidades & Rituais</h2>
+
+  <div id="habilidades-list"></div>
+
+  <button id="add-habilidade" class="btn-add">+ Adicionar Habilidade</button>
+</div>
+
 
 <!-- JS -->
 <script src="assets/js/utils.js" defer></script>
@@ -210,7 +213,7 @@
 <script src="assets/js/radar.js" defer></script>
 <script src="assets/js/informacoes.js" defer></script>
 <script src="assets/js/main.js" defer></script>
-
+<script src="assets/js/habilidades.js" defer></script>
 
 </body>
 </html>

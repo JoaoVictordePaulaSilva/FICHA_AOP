@@ -302,3 +302,162 @@ svg{
   background:#290000;
 }
 
+/* ===== NOMES RITUALÍSTICOS ===== */
+
+.names-ritual{
+  display:flex;
+  justify-content:center;
+  gap:40px;
+  margin-bottom:35px;
+}
+
+.name-block{
+  display:flex;
+  flex-direction:column;
+  width:380px;
+}
+
+.name-block label{
+  font-size:16px;
+  color:#ff4d4d;
+  letter-spacing:1px;
+  margin-bottom:6px;
+  text-shadow:0 0 4px rgba(255,0,0,0.35);
+  font-weight:600;
+}
+
+.name-block input{
+  width:100%;
+  padding:14px 16px;
+  background:#0d0d10;
+  border:1px solid #3a0000;
+  border-radius:10px;
+  color:#ffffff;
+  font-size:20px;              /* ← BEM maior */
+  font-weight:700;             /* ← Destaque */
+  letter-spacing:1px;
+  box-shadow:0 0 8px rgba(255,0,0,0.15);
+  transition:0.25s;
+}
+
+.name-block input:focus{
+  outline:none;
+  border-color:#b60000;
+  box-shadow:0 0 12px rgba(255,80,80,0.35);
+  background:#111114;
+}
+
+/* Responsivo */
+@media (max-width:900px){
+  .names-ritual{
+    flex-direction:column;
+    align-items:center;
+    gap:20px;
+  }
+
+  .name-block{
+    width:90%;
+  }
+
+  .name-block input{
+    font-size:18px;
+  }
+}
+/* ===== CARD DE HABILIDADES ===== */
+
+.card-habilidades{
+  grid-column: 1 / -1;
+  margin-top:25px;
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+}
+
+/* Linha completa da habilidade */
+.hab-row{
+  display:grid;
+  grid-template-columns: 1.2fr 0.6fr 1.5fr 0.6fr 0.4fr 0.12fr;
+  gap:12px;
+  background:#0c0c0e;
+  border:1px solid #2a0000;
+  padding:14px;
+  border-radius:10px;
+  align-items:center;
+}
+
+/* Inputs */
+.hab-row input,
+.hab-row textarea,
+.hab-row select{
+  width:100%;
+  background:#111113;
+  border:1px solid #2a0000;
+  color:#fff;
+  padding:8px;
+  border-radius:6px;
+  resize:none;
+}
+
+.hab-row textarea{
+  height:50px;
+}
+
+/* Ícone do elemento — maior e com hover verdadeiro */
+.elemento-box{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.elemento-box img{
+  width:56px;      /* maior */
+  height:56px;
+  opacity:0.95;
+  filter:drop-shadow(0 0 3px rgba(255,0,0,0.4));
+  transition:0.25s ease;
+}
+
+.elemento-box img:hover{
+  transform:scale(1.18);   /* aumenta no hover corretamente */
+}
+
+/* Botão remover — menor e mais elegante */
+.btn-remove{
+  width:22px;
+  height:22px;
+  background:#250000;
+  border:1px solid #550000;
+  color:#ff8080;
+  font-size:12px;
+  border-radius:4px;
+  cursor:pointer;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  transition:0.25s;
+  padding:0;
+}
+
+.btn-remove:hover{
+  background:#550000;
+}
+
+/* Botão adicionar */
+.btn-add{
+  align-self:flex-start;
+  padding:10px 16px;
+  background:#0e0e10;
+  border:1px solid #440000;
+  color:#ff4d4d;
+  font-weight:600;
+  border-radius:8px;
+  cursor:pointer;
+  transition:0.25s;
+}
+
+.btn-add:hover{
+  background:#330000;
+}
+
+
