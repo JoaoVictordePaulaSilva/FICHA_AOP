@@ -188,3 +188,117 @@ svg{
   border-top:1px solid rgba(255,0,0,0.12);
   margin:12px 0;
 }
+
+/* NOVA SEÇÃO — META: NEX / NÍVEL / LIMITE DE PD */
+.char-meta{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-bottom: 22px;
+}
+
+.meta-field input{
+  width: 100%;
+  padding: 10px;
+  background: #0c0c0e;
+  border: 1px solid #2a0000;
+  color: #fff;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.meta-field label{
+  color: #ff4d4d;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  display: block;
+}
+
+/* EXTRA INFO — Resistências / Proteção */
+.extra-info{
+  margin-top:18px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:15px;
+}
+
+.extra-field label{
+  color:#ff4d4d;
+  font-size:14px;
+  font-weight:600;
+}
+
+.extra-field textarea{
+  width:100%;
+  height:70px;
+  resize:vertical;
+  padding:10px;
+  background:#0c0c0e;
+  border:1px solid #2a0000;
+  color:#fff;
+  border-radius:8px;
+  font-size:14px;
+  line-height:1.3;
+}
+
+/* responsividade */
+@media (max-width:900px){
+  .extra-info{
+    grid-template-columns:1fr;
+  }
+}
+
+/* ===== ATAQUES ===== */
+
+.card-attacks{
+  padding-bottom:16px;
+  display:flex;
+  flex-direction:column;
+  gap:15px;
+}
+
+.ataques-list{
+  display:flex;
+  flex-direction:column;
+  gap:12px; /* diminuído levemente */
+}
+
+
+/* cada linha de ataque */
+.ataque-row{
+  display:grid;
+  grid-template-columns: 1.2fr 1fr 1fr 0.8fr;
+  gap:10px;
+  background:#0c0c0e;
+  padding:10px;
+  border:1px solid #2a0000;
+  border-radius:10px;
+}
+
+.ataque-row input{
+  width:100%;
+  padding:8px;
+  background:#111113;
+  border:1px solid #2a0000;
+  color:white;
+  border-radius:6px;
+  font-size:14px;
+}
+
+.btn-add-ataque{
+  margin-top:10px;
+  padding:10px;
+  background:#1a0000;
+  border:1px solid #b60000;
+  border-radius:6px;
+  color:#ff4d4d;
+  font-weight:600;
+  cursor:pointer;
+  transition:0.2s;
+}
+
+.btn-add-ataque:hover{
+  background:#290000;
+}
+
