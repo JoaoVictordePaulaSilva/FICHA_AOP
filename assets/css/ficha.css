@@ -1,0 +1,190 @@
+/* PERÍCIAS */
+.pericias-list{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+.per-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:6px 0;
+  border-bottom:1px solid rgba(255,0,0,0.08);
+}
+.per-row span{
+  font-size:14px;
+  color:#ffb3b3;
+}
+.per-row input{
+  width:60px;
+  padding:6px;
+  text-align:center;
+  background:#0c0c0e;
+  border:1px solid #2a0000;
+  color:#fff;
+  border-radius:6px;
+}
+
+/* ATRIBUTOS */
+.attr-inputs{
+  margin-top:18px;
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:10px;
+}
+.attr-inputs input{
+  width:100%;
+  padding:8px;
+  text-align:center;
+  background:#0c0c0e;
+  border:1px solid #2a0000;
+  color:#fff;
+  border-radius:6px;
+}
+
+/* RODA */
+.attr-wheel-box{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:10px;
+}
+svg{
+  width:420px;
+  height:420px;
+}
+
+#radar-shape {
+    fill: rgba(255,50,50,0.16) !important;
+    stroke: #ff6b6b !important;
+    stroke-width: 2 !important;
+}
+
+#radar-outline {
+    fill: none !important;
+    stroke: #7a0000 !important;
+    stroke-width: 1.5 !important;
+}
+
+#guides polygon {
+    fill: none !important;
+    stroke: #3a0000 !important;
+}
+
+/* INFO (Origem / Classe / Trilha) */
+.info-fields{
+  margin-top:25px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+}
+
+.info-field input{
+  width:100%;
+  padding:10px;
+  background:#0c0c0e;
+  border:1px solid #2a0000;
+  color:#fff;
+  border-radius:8px;
+  font-size:16px;
+}
+
+/* INFO DE JOGO – PV / PE / DEF */
+.game-info{
+  margin-top:25px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.game-box{
+  background:#0c0c0e;
+  border:1px solid #2a0000;
+  padding:12px;
+  border-radius:10px;
+}
+
+.game-box label{
+  color:#ff4d4d;
+  font-size:14px;
+  font-weight:600;
+}
+
+.double-field{
+  display:flex;
+  gap:10px;
+  margin-top:6px;
+}
+
+.double-field input{
+  flex:1;
+  padding:8px;
+  background:#111113;
+  border:1px solid #2a0000;
+  color:#fff;
+  border-radius:6px;
+  text-align:center;
+}
+
+.def-field{
+  margin-top:6px;
+}
+.def-field input{
+  width:100%;
+  padding:8px;
+  background:#111113;
+  border:1px solid #2a0000;
+  color:#fff;
+  border-radius:6px;
+  text-align:center;
+}
+
+.def-hint{
+  margin-top:4px;
+  font-size:12px;
+  color:#b95959;
+  opacity:0.8;
+  text-align:center;
+}
+
+/* right-column: única célula da grid na coluna direita, que empilha dois cards internos */
+.right-column{
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+  align-self:stretch; /* garante que o grid faça a coluna direita ter altura compatível */
+  height:100%;
+}
+
+/* estilos para os dois cards internos (agora são filhos de .right-column) */
+.card-attributes{
+  flex: 0 0 auto;   /* altura natural, não cresce */
+  padding-bottom: 12px;
+}
+
+.card-infos{
+  flex: 0 0 auto;            /* altura apenas do conteúdo */
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  padding-bottom: 16px;
+  overflow: visible;         /* evita card esticar */
+}
+
+
+/* se quiser um divisor visual entre os dois cards: */
+.card-attributes + .card-infos {
+  border-top: none; /* já estão separados visualmente, manter limpo */
+}
+
+/* reduz o tamanho do SVG em telas pequenas (responsivo) */
+@media (max-width:900px){
+  .attr-wheel-box svg{ max-width:320px; max-height:320px; }
+}
+
+/* opcional: divisor estilizado para dar identidade ritualística */
+.section-divider{
+  border:0;
+  border-top:1px solid rgba(255,0,0,0.12);
+  margin:12px 0;
+}

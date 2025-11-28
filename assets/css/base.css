@@ -1,0 +1,21 @@
+:root{
+  --bg:#0a0a0c;
+  --card:#111113;
+  --muted:#9b9b9b;
+  --accent:#b60000;
+  --radius:12px;
+  font-family:"Montserrat",sans-serif;
+}
+
+body{
+  background:radial-gradient(circle at top,#1a0000,#000);
+  color:#e5e5e5;
+  padding:20px;
+}
+h1{
+  text-align:center;
+  color:#ff1a1a;
+  margin-bottom:20px;
+  letter-spacing:3px;
+  font-size:34px;
+}

@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ficha de Ordem Paranormal</title>
+
+<!-- CSS -->
+<link rel="stylesheet" href="assets/css/reset.css">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/layout.css">
+<link rel="stylesheet" href="assets/css/theme.css">
+<link rel="stylesheet" href="assets/css/ficha.css">
+
+</head>
+
+<body>
+
+<h1>FICHA DE ORDEM PARANORMAL</h1>
+
+<!-- Nomes -->
+<div class="names">
+  <div>
+    <label>Nome do Personagem</label><br>
+    <input id="nome_personagem" placeholder="Personagem">
+  </div>
+  <div>
+    <label>Nome do Jogador</label><br>
+    <input id="nome_jogador" placeholder="Jogador">
+  </div>
+</div>
+
+<div class="layout">
+
+  <!-- PERÍCIAS (coluna esquerda) -->
+  <div class="card">
+    <h2 class="titulo-secao">Perícias</h2>
+    <div class="pericias-list" id="pericias"></div>
+  </div>
+
+  <!-- coluna direita: UM item da grid que contém os DOIS cards empilhados -->
+  <div class="right-column"> 
+
+    <!-- CARD A — ATRIBUTOS (primeiro card) -->
+    <div class="card card-attributes">
+      <h2 class="titulo-secao">Atributos</h2>
+
+      <div class="attr-wheel-box">
+        <svg id="radar" viewBox="0 0 300 300">
+          <g id="guides"></g>
+          <polygon id="radar-shape"></polygon>
+          <polygon id="radar-outline"></polygon>
+          <circle cx="150" cy="150" r="4" fill="#ff0000"/>
+          <g id="labels"></g>
+        </svg>
+      </div>
+
+      <!-- Inputs dos atributos -->
+      <div class="attr-inputs">
+        <div><label>FOR</label><input type="number" id="FOR" min="0" max="10" value="1"></div>
+        <div><label>AGI</label><input type="number" id="AGI" min="0" max="10" value="1"></div>
+        <div><label>INT</label><input type="number" id="INT" min="0" max="10" value="1"></div>
+        <div><label>PRE</label><input type="number" id="PRE" min="0" max="10" value="1"></div>
+        <div><label>VIG</label><input type="number" id="VIG" min="0" max="10" value="1"></div>
+      </div>
+    </div>
+
+    <!-- CARD B — INFORMAÇÕES DO AGENTE (segundo card, ocupa espaço restante) -->
+    <div class="card card-infos">
+      <h2 class="titulo-secao">Informações do Agente</h2>
+
+      <div class="info-fields">
+        <div class="info-field">
+          <label>Origem</label>
+          <input type="text" id="origem" placeholder="Ex: Amnésico">
+        </div>
+
+        <div class="info-field">
+          <label>Classe</label>
+          <input type="text" id="classe" placeholder="Ex: Combatente">
+        </div>
+
+        <div class="info-field">
+          <label>Trilha</label>
+          <input type="text" id="trilha" placeholder="Ex: Operações Especiais">
+        </div>
+      </div>
+
+      <div class="game-info">
+
+        <!-- PV -->
+        <div class="game-box">
+          <label>PV (Pontos de Vida)</label>
+          <div class="double-field">
+            <input id="pv_atual" type="number" placeholder="Atual">
+            <input id="pv_max" type="number" placeholder="Máx">
+          </div>
+        </div>
+
+        <!-- PE -->
+        <div class="game-box">
+          <label>PD (Pontos de Determinação)</label>
+          <div class="double-field">
+            <input id="pe_atual" type="number" placeholder="Atual">
+            <input id="pe_max" type="number" placeholder="Máx">
+          </div>
+        </div>
+
+        <!-- DEF -->
+        <div class="game-box">
+          <label>DEF</label>
+          <div class="def-field">
+            <input id="def_valor" type="number" placeholder="Ex: 12">
+          </div>
+          <div class="def-hint">10 + AGI + equipamentos + outros</div>
+        </div>
+
+      </div>
+
+    </div> <!-- fim card-infos -->
+
+  </div> <!-- fim right-column -->
+
+</div> <!-- fim layout -->
+
+<!-- JS -->
+<script src="assets/js/utils.js" defer></script>
+<script src="assets/js/pericias.js" defer></script>
+<script src="assets/js/atributos.js" defer></script>
+<script src="assets/js/radar.js" defer></script>
+<script src="assets/js/informacoes.js" defer></script>
+<script src="assets/js/main.js" defer></script>
+
+</body>
+</html>
