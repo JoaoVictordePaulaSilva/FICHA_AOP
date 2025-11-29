@@ -28,7 +28,8 @@ function pointsToString(arr){
 
 function drawGuides(){
   guidesGroup.innerHTML = "";
-  [0.25,0.5,0.75,1].forEach(f=>{
+  [1,2,3,4,5].forEach(n=>{
+    const f = n / 5;
     const el = document.createElementNS("http://www.w3.org/2000/svg","polygon");
     el.setAttribute("points", pointsToString(regularPolygonPoints(f)));
     el.setAttribute("stroke","#3a0000");
@@ -56,8 +57,8 @@ function placeLabels(){
 function valuePoint(v, ang){
   const rad = ang*Math.PI/180;
   return {
-    x:center.x + Math.cos(rad)*(maxR*(v/10)),
-    y:center.y + Math.sin(rad)*(maxR*(v/10))
+    x:center.x + Math.cos(rad)*(maxR*(v/5)),
+    y:center.y + Math.sin(rad)*(maxR*(v/5))
   };
 }
 

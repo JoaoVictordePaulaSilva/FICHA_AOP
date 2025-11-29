@@ -18,7 +18,10 @@ function criarHabilidade(){
 
   div.innerHTML = `
     <input placeholder="Nome do Poder/Ritual">
-    <input placeholder="Custo (ex: 2 PD)">
+
+    <input class="pd-field" placeholder="Custo (ex: 2 PD)">
+    <input class="dt-field" placeholder="DT (ex: 25 Vontade)">
+
     <textarea placeholder="Descrição"></textarea>
     <input placeholder="Página (ex: 208 AOP)">
 
@@ -31,7 +34,7 @@ function criarHabilidade(){
     <button class="btn-remove">X</button>
   `;
 
-  // Ícone
+  // Criar ícone do elemento
   const select = div.querySelector(".elemento-select");
   const iconContainer = document.createElement("div");
   iconContainer.className = "elemento-box";
@@ -40,9 +43,11 @@ function criarHabilidade(){
   img.src = elementos[""];
   iconContainer.appendChild(img);
 
-  div.replaceChild(iconContainer, div.children[4]);
+  // mover elementos na linha
+  div.replaceChild(iconContainer, div.children[5]);
   div.insertBefore(select, iconContainer);
 
+  // atualizar ícone ao alterar select
   select.addEventListener("change", e => {
     img.src = elementos[e.target.value] || elementos[""];
   });

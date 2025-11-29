@@ -94,6 +94,13 @@ svg{
   stroke: #3a0000 !important;
 }
 
+#labels text {
+  fill: #f2f2f2;
+  font-weight: 600;
+  text-shadow: 0 0 4px rgba(255,0,0,0.45);
+}
+
+
 /* INFO (Origem / Classe / Trilha) */
 .info-fields{
   margin-top:25px;
@@ -368,10 +375,18 @@ svg{
   gap:18px;
 }
 
-/* Linha de habilidade */
+/* Linha de habilidade — AGORA COM 7 COLUNAS */
 .hab-row{
   display:grid;
-  grid-template-columns: 1.2fr 0.6fr 1.5fr 0.6fr 0.4fr 0.12fr;
+  grid-template-columns: 
+    1.4fr   /* Nome */
+    0.5fr   /* PD */
+    0.6fr   /* DT */
+    1.5fr   /* Descrição */
+    0.5fr   /* Página */
+    0.4fr   /* Elemento */
+    0.12fr; /* X */
+  
   gap:12px;
   background:#0c0c0e;
   border:1px solid #2a0000;
@@ -393,6 +408,12 @@ svg{
 
 .hab-row textarea{
   height:50px;
+}
+
+/* Campos PD / DT */
+.pd-field, .dt-field {
+  text-align:center;
+  font-weight:600;
 }
 
 /* Ícones dos elementos */
@@ -451,4 +472,3 @@ svg{
 .btn-add:hover{
   background:#330000;
 }
-
