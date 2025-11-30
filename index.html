@@ -15,11 +15,12 @@
 </head>
 
 <body>
-  
 
 <h1>FICHA DE ORDEM PARANORMAL</h1>
 
-<!-- Nomes — versão ritualística aprimorada -->
+<!-- ===========================
+      NOMES
+=========================== -->
 <div class="names names-ritual">
   <div class="name-block">
     <label>Nome do Personagem</label>
@@ -33,25 +34,24 @@
 </div>
 
 
+
 <div class="layout">
 
-  <!-- PERÍCIAS (coluna esquerda) -->
+  <!-- PERÍCIAS -->
   <div class="card">
     <h2 class="titulo-secao">Perícias</h2>
     <div class="pericias-list" id="pericias"></div>
   </div>
 
-  <!-- coluna direita: ATRIBUTOS + INFORMAÇÕES + ATAQUES -->
-  <div class="right-column"> 
+  <!-- Coluna Direita -->
+  <div class="right-column">
 
-    <!-- CARD A — ATRIBUTOS -->
+    <!-- ATRIBUTOS -->
     <div class="card card-attributes">
       <h2 class="titulo-secao">Atributos</h2>
 
       <div class="attr-wheel-box">
         <svg id="radar" viewBox="0 0 300 300">
-
-          <!-- FUNDO DO PENTAGRAMA -->
           <image href="assets/img/Geral/Outro_Lado.png"
             x="0" y="0" width="300" height="300"
             opacity="0.12"
@@ -75,7 +75,9 @@
       </div>
     </div>
 
-    <!-- CARD B — INFORMAÇÕES DO PERSONAGEM -->
+
+
+    <!-- INFORMAÇÕES DO PERSONAGEM -->
     <div class="card card-infos">
       <h2 class="titulo-secao">Informações do Personagem</h2>
 
@@ -114,9 +116,8 @@
       </div>
 
       <div class="game-info">
-
         <div class="game-box">
-          <label>PV (Pontos de Vida)</label>
+          <label>PV</label>
           <div class="double-field">
             <input id="pv_atual" type="number" placeholder="Atual">
             <input id="pv_max" type="number" placeholder="Máx">
@@ -124,7 +125,7 @@
         </div>
 
         <div class="game-box">
-          <label>PD (Pontos de Determinação)</label>
+          <label>PD</label>
           <div class="double-field">
             <input id="pd_atual" type="number" placeholder="Atual">
             <input id="pd_max" type="number" placeholder="Máx">
@@ -138,7 +139,6 @@
           </div>
           <div class="def-hint">10 + AGI + equipamentos + outros</div>
         </div>
-
       </div>
 
       <div class="extra-info">
@@ -155,7 +155,9 @@
 
     </div>
 
-    <!-- CARD C — ATAQUES -->
+
+
+    <!-- ATAQUES -->
     <div class="card card-attacks">
       <h2 class="titulo-secao">Ataques</h2>
 
@@ -197,15 +199,14 @@
         </div>
 
       </div>
-    </div> <!-- fim card ataques -->
-
+    </div>
 
   </div><!-- fim right-column -->
-
 </div><!-- fim layout -->
 
 
-<!-- CARD INDEPENDENTE — HABILIDADES E RITUAIS (AGORA LARGURA TOTAL) -->
+
+<!-- HABILIDADES -->
 <div class="card card-habilidades">
   <h2 class="titulo-secao">Habilidades & Rituais</h2>
 
@@ -214,15 +215,11 @@
   <button id="add-habilidade" class="btn-add">+ Adicionar Habilidade</button>
 </div>
 
-<!-- CARD D — ITENS -->
+
+
+<!-- ITENS -->
 <div class="card card-itens">
   <h2 class="titulo-secao">Itens</h2>
-
-  <div class="itens-top">
-
-    <!-- CATEGORIAS -->
-<div class="card card-itens">
-  <h2 class="titulo-secao"></h2>
 
   <div class="itens-top">
 
@@ -253,7 +250,6 @@
 
     <!-- CARGA -->
     <div class="carga-card">
-
       <div class="carga-box">
         <label>Carga Atual</label>
         <input type="number" id="carga_atual" placeholder="Ex: 4">
@@ -268,11 +264,33 @@
 
   </div>
 
-  <!-- ITENS CRIÁVEIS -->
   <div id="itens-list" class="itens-list"></div>
 
   <button id="add-item" class="btn-add-item">+ Adicionar Item</button>
 </div>
+
+
+
+
+<!-- ===========================
+      CONTROLES FINAIS
+=========================== -->
+<div class="bottom-controls" >
+
+  <button id="download-json" class="btn-add">Salvar JSON</button>
+
+  <label id="load-json" class="btn-add" style="cursor:pointer;">
+    Carregar JSON
+    <input id="file-input" type="file" accept=".json" style="display:none;">
+  </label>
+
+  <button id="export-pdf" class="btn-add">Exportar PDF</button>
+  <button id="nova-ficha" class="btn-add">Nova Ficha</button>
+
+  <div id="save-status" style="min-width:220px; text-align:left; color:#ffb3b3; font-size:14px;"></div>
+</div>
+
+
 
 
 
@@ -285,6 +303,13 @@
 <script src="assets/js/main.js" defer></script>
 <script src="assets/js/habilidades.js" defer></script>
 <script src="assets/js/itens.js" defer></script>
+
+<!-- libs PDF -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<!-- sistema de salvar/carregar -->
+<script src="assets/js/save_load.js"></script>
 
 </body>
 </html>

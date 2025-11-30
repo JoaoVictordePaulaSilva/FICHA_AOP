@@ -655,3 +655,26 @@ svg{
   font-weight: 600;
   border-radius: 8px;
 }
+
+/* ===========================
+   CONTROLES FINAIS (Bottom Controls)
+=========================== */
+
+.bottom-controls {
+  display: flex;
+  flex-wrap: wrap;              /* quebra linha no celular */
+  justify-content: center;      /* centraliza horizontal */
+  align-items: center;          /* alinha tudo no centro */
+  gap: 16px;                    /* espaçamento bonito entre botões */
+  margin-top: 40px;
+  padding-bottom: 40px;
+}
+
+/* status de salvamento */
+#save-status {
+  flex-basis: 100%;             /* joga para linha de baixo */
+  text-align: center;
+  margin-top: 6px;
+  font-size: 14px;
+  opacity: 0.8;
+}
