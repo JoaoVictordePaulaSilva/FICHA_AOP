@@ -868,3 +868,73 @@ svg{
     padding: 10px;
   }
 }
+
+
+/* ===== CORREÇÕES FORTES PARA MOBILE ===== */
+@media (max-width: 768px){
+
+  /* Torna o layout full-width */
+  body {
+    padding: 6px;
+    overflow-x: hidden;
+  }
+
+  /* Roda dos atributos se ajusta automaticamente */
+  svg{
+    width: 100% !important;
+    height: auto !important;
+  }
+  .attr-wheel-box{
+    padding: 10px;
+  }
+
+  /* Perícias ficam mais legíveis */
+  .per-row input{
+    width: 48px;
+  }
+
+  /* Atributos — vira 2 colunas */
+  .attr-inputs{
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  /* Info do personagem — vira 1 coluna */
+  .info-fields{
+    grid-template-columns: 1fr !important;
+  }
+
+  .game-info{
+    grid-template-columns: 1fr !important;
+  }
+
+  .extra-info{
+    grid-template-columns: 1fr !important;
+  }
+
+  /* ATAQUES — vira um card vertical */
+  .ataque-row{
+    grid-template-columns: 1fr !important;
+  }
+  .ataque-row input{
+    font-size: 14px;
+  }
+
+  /* HABILIDADES — vira vertical */
+  .hab-row{
+    grid-template-columns: 1fr !important;
+  }
+
+  /* ITENS — vira vertical */
+  .item-row{
+    grid-template-columns: 1fr !important;
+  }
+
+  .categorias-grid{
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  /* Bloco ritualístico não força largura enorme */
+  .name-block{
+    width: 100% !important;
+  }
+}
