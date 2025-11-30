@@ -266,11 +266,153 @@
 
   <div id="itens-list" class="itens-list"></div>
 
-  <button id="add-item" class="btn-add-item">+ Adicionar Item</button>
+  <button id="add-item" class="btn-add">+ Adicionar Item</button>
+
 </div>
 
 
+<!-- ===========================
+      REGRAS
+=========================== -->
+<div class="card card-regras">
 
+  <h2 class="titulo-secao">Regras</h2>
+
+<!-- CARD: COMBATE -->
+<div class="regra-box">
+  <div class="regra-header" data-target="#regra-combate">
+    <h3>Combate</h3>
+    <span class="toggle-icon">+</span>
+  </div>
+
+  <div id="regra-combate" class="regra-conteudo">
+
+    <!-- MANOBRAS DE COMBATE -->
+    <div class="subcard">
+      <h4 class="subtitulo">Manobras de Combate</h4>
+      <p class="subtexto">Formas de interação física com o adversário além do ataque, permitindo influenciar a situação de combate de maneira estratégica.</p>
+      <ul class="sublista">
+        <li><b>Agarrar:</b> Limita o movimento do adversário e dificulta ataques, enquanto mantém controle da situação.</li>
+        <li><b>Derrubar:</b> Desequilibra o inimigo, criando oportunidades estratégicas ou dramáticas.</li>
+        <li><b>Desarmar:</b> Retira armas ou itens, alterando a dinâmica do combate.</li>
+        <li><b>Empurrar:</b> Move o inimigo, abrindo espaço para manobras adicionais.</li>
+        <li><b>Quebrar:</b> Danifica ou destrói itens importantes do adversário.</li>
+        <li><b>Atropelar:</b> Avança pelo espaço do inimigo, criando deslocamento estratégico.</li>
+        <li><b>Fintar:</b> Movimento rápido e enganoso que deixa o adversário desprevenido.</li>
+        <li><b>Preparar:</b> Antecipação de ações, aumentando tensão e narrativa.</li>
+        <li><b>Usar Habilidade ou Item:</b> Poderes ou objetos podem alterar o curso do combate.</li>
+      </ul>
+    </div>
+
+    <!-- CONJURAÇÃO COMPLEXA -->
+    <div class="subcard">
+      <h4 class="subtitulo">Conjuração Complexa</h4>
+      <p class="subtexto">O ritual é dividido em <b>três etapas</b>, exigindo atenção, criatividade e habilidade do conjurador.</p>
+      
+      <ol class="sublista-ol">
+        <li>
+          <b>Desenhar o Símbolo:</b> Cria conexão com o outro lado. Material usado influencia efeitos:
+          <ul class="elementos-list">
+            <li class="sangue"><b>SANGUE:</b> Recupera 2d6 PV se passar no teste de Ocultismo. Rituais de dano de Sangue recebem 1 dado extra de dano; falha provoca sangramento.</li>
+            <li class="morte"><b>MORTE:</b> DT aumenta +2; rituais de dano de Morte recebem 1 dado extra; falha aplica -2 em testes até fim da cena.</li>
+            <li class="conhecimento"><b>CONHECIMENTO:</b> Limite de PE aumenta +2; rituais de dano de Conhecimento recebem 1 dado extra; requisitos de aprimoramento podem ser ignorados.</li>
+            <li class="energia"><b>ENERGIA:</b> Passando no teste de Ocultismo, ganha ação de movimento extra; rituais de dano de Energia causam 1 dado extra; falha deixa alvo ofuscado.</li>
+          </ul>
+        </li>
+        <li><b>Componentes Ritualísticos:</b> Sacrificar componentes adiciona +1d20 no teste de Ocultismo, representando energia canalizada.</li>
+        <li><b>Invocando a Entidade:</b> Define círculo, alvos, PD gasto, e realiza teste de Ocultismo contra DT 20 + PD gastos. Sucesso: ritual se manifesta; falha: efeitos colaterais ainda acontecem.</li>
+      </ol>
+
+      <div class="narrativa-box">
+        <h5>Narrativa</h5>
+        <p>Detalhe cada ação: como o símbolo é traçado, componentes utilizados, palavras, gestos e emoções do conjurador. Mesmo rituais simples podem ser épicos.</p>
+      </div>
+    </div>
+
+    <!-- AÇÕES NARRATIVAS -->
+    <div class="subcard">
+      <h4 class="subtitulo">Ações Narrativas</h4>
+      <p class="subtexto">Jogadores podem realizar qualquer ação que desejarem, descrevendo intenções de forma criativa. Penalidades aplicam-se para equilibrar desafios:</p>
+      <ul class="sublista">
+        <li>Ação de <b>complexidade alta</b>: -1d20</li>
+        <li>Ação de <b>complexidade extrema</b>: -2d20</li>
+        <li>Use criatividade para moldar o mundo; só se impede se for impossível ou dados bloquearem.</li>
+      </ul>
+    </div>
+
+    <!-- COREOGRAFIA DE LUTA -->
+    <div class="subcard">
+      <h4 class="subtitulo">Coreografia de Luta</h4>
+      <p class="subtexto">Sequências de ataques podem ser descritas como duelos dramáticos. Cada golpe adicional aumenta penalidade em -1d20, mas multiplica dano até x3.</p>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- CARD: INVESTIGAÇÃO -->
+<div class="regra-box">
+  <div class="regra-header" data-target="#regra-investigacao">
+    <h3>Investigação</h3>
+    <span class="toggle-icon">+</span>
+  </div>
+
+  <div id="regra-investigacao" class="regra-conteudo">
+    <p>Durante cenas de investigação, os personagens podem realizar as seguintes ações:</p>
+    <ul class="sublista">
+      <li><b>Procurar Pistas:</b> Teste de perícia apropriada para encontrar pistas.</li>
+      <li><b>Busca Obstinada:</b> Ganha +1d20 no teste, mas perde 1 de Sanidade.</li>
+      <li><b>Facilitar Investigação:</b> Usa perícia para fornecer +2 em testes de aliados.</li>
+      <li><b>Usar Habilidades/Itens:</b> Emprega um item ou habilidade relevante.</li>
+      <li><b>Ajudar:</b> Ajuda outro personagem em seu teste.</li>
+      <li><b>Recapitular:</b> Teste de INT (DT 15) para encontrar pista revisando o caso.</li>
+      <li><b>Compartilhar:</b> Permite que outro personagem faça teste de INT (DT 15) para encontrar pista com informações fornecidas.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- CARD: PERSEGUIÇÃO -->
+<div class="regra-box">
+  <div class="regra-header" data-target="#regra-perseguicao">
+    <h3>Perseguição</h3>
+    <span class="toggle-icon">+</span>
+  </div>
+
+  <div id="regra-perseguicao" class="regra-conteudo">
+    <p>Perseguições são resolvidas com testes estendidos de <b>Atletismo</b>. Acumula-se 3 sucessos antes de 3 falhas para vencer.</p>
+    <ul class="sublista">
+      <li><b>Na Cena:</b> Personagem perde 1d4 PV na primeira rodada, 2d4 na segunda e assim por diante.</li>
+      <li><b>Criar Obstáculo:</b> Teste de Força (DT 15) para reduzir DT dos adversários em –5. Apenas um personagem por rodada pode realizar.</li>
+      <li><b>Despistar:</b> Substitui teste de Atletismo por Furtividade se já tiver 1 sucesso. Passa = +2 sucessos, falha = +2 falhas.</li>
+      <li><b>Sacrifício:</b> Falha automática em Atletismo, mas fornece +0 em testes de aliados.</li>
+      <li><b>Atrapalhar:</b> Teste de Luta para atrapalhar outra presa. Sucesso = -1d20 no teste de Atletismo dela.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- CARD: INTERLÚDIO -->
+<div class="regra-box">
+  <div class="regra-header" data-target="#regra-interludio">
+    <h3>Interlúdio</h3>
+    <span class="toggle-icon">+</span>
+  </div>
+
+  <div id="regra-interludio" class="regra-conteudo">
+    <p>Durante um interlúdio, um personagem pode realizar até <b>DUAS ações</b> da lista:</p>
+    <ul class="sublista">
+      <li><b>Alimentar-se:</b> Benefícios conforme o prato escolhido (Favorito: +2 PD, Nutritivo: dobra PV, Energético: dobra PD, Rápido: +5 em perícia ao revisar caso).</li>
+      <li><b>Dormir:</b> Recupera PV; tipos de descanso: Normal (7 PV), Precária (½ PV), Confortável (2x PV), Luxuosa (3x PV).</li>
+      <li><b>Exercitar-se:</b> +1d6 em testes de Agilidade, Força ou Vigor até o fim da missão. Máximo = Vigor.</li>
+      <li><b>Ler:</b> +1d6 em testes de Intelecto ou Presença até o fim da missão. Máximo = Intelecto.</li>
+      <li><b>Manutenção:</b> Conserta item quebrado, restaurando PV dele ao máximo.</li>
+      <li><b>Relaxar:</b> Recupera PD, +1 PD para todos que realizarem a mesma ação no interlúdio.</li>
+      <li><b>Revisar Caso:</b> Revisão de anotações ou cenas de investigação. Teste de perícia com DT definida normalmente.</li>
+      <li><b>Fabricação em Campo:</b> Criação de itens conforme Profissão. DT varia de acordo com o item, kits reduzem penalidade em –5.</li>
+    </ul>
+  </div>
+</div>
+
+</div>
 
 <!-- ===========================
       CONTROLES FINAIS

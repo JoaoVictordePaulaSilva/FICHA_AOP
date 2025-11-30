@@ -447,8 +447,6 @@
   if (btnExportPDF) btnExportPDF.addEventListener('click', exportPDFsingle);
   if (btnNova) btnNova.addEventListener('click', novaFicha);
 
-  if (addHabBtn) addHabBtn.addEventListener('click', () => criarHabilidadeRow());
-  if (addItemBtn) addItemBtn.addEventListener('click', () => criarItemRow());
 
   // expose utilities for console debugging
   window._fichaUtils = {

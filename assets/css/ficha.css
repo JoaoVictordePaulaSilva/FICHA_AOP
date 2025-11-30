@@ -678,3 +678,152 @@ svg{
   font-size: 14px;
   opacity: 0.8;
 }
+
+/* ===========================
+   Regras 
+=========================== */
+
+/* CARD PRINCIPAL */
+.card-regras {
+  margin-top: 25px;           
+  background: #0c0c0e;        /* mesmo que os outros cards */
+  border: 1px solid #2a0000;  /* mesma borda */
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* CARDS INTERNOS */
+.card-regras .regra-box {
+  border: 1px solid #2a0000;  /* mesma borda dos itens/habilidades */
+  padding: 12px 16px;
+  margin-top: 14px;
+  border-radius: 10px;
+  background: #111113;        /* mesmo padrão de fundo interno dos subcards */
+}
+
+/* Header clicável */
+.regra-header {
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  user-select: none;
+  padding: 4px 0;
+}
+
+.regra-header h3 {
+  color: #ff4d4d;
+  font-size: 18px;
+}
+
+.regra-conteudo {
+  display: none;
+  margin-top: 10px;
+  color: #ddd;
+  line-height: 1.45;
+}
+
+.toggle-icon {
+  font-size: 22px;
+  color: #ff4d4d;
+  line-height: 20px;
+  transition: transform .2s ease;
+}
+
+/* Subcards dentro de Combate */
+.regra-conteudo .subcard {
+  border: 1px solid #2a0000;
+  padding: 14px 16px;
+  border-radius: 10px;
+  margin-bottom: 12px;
+  background: #111113;
+  box-shadow: 0 0 10px rgba(255,0,0,0.08);
+}
+
+/* Subtítulos (h4) com glow */
+.subtitulo {
+  font-size: 16px;
+  font-weight: 700;
+  color: #ff4d4d;
+  margin-bottom: 6px;
+  text-shadow: 0 0 4px rgba(255,77,77,0.6);
+}
+
+/* Texto descritivo dos subcards */
+.subtexto {
+  font-size: 14px;
+  color: #ddd;
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+/* Listas estilizadas */
+.sublista, .elementos-list {
+  margin-left: 18px;
+  padding-left: 0;
+  list-style: disc;
+  color: #ddd;
+  line-height: 1.45;
+}
+
+.elementos-list li.sangue { color: #ff4d4d; font-weight:600; }
+.elementos-list li.morte { color: #ccc; font-weight:600; }
+.elementos-list li.conhecimento { color: #ffd700; font-weight:600; }
+.elementos-list li.energia { color: #00ffff; font-weight:600; }
+
+/* Listas numeradas */
+.sublista-ol {
+  margin-left: 20px;
+  color: #ddd;
+}
+
+/* Box de narrativa com destaque */
+.narrativa-box {
+  margin-top: 10px;
+  padding: 12px;
+  border-left: 3px solid #ff4d4d;
+  background: rgba(255,77,77,0.05);
+  font-size: 13px;
+  line-height: 1.45;
+  color: #f0f0f0;
+}
+.narrativa-box h5 {
+  margin-top: 0;
+  font-size: 14px;
+  font-weight: 700;
+  color: #ff4d4d;
+  text-shadow: 0 0 4px rgba(255,77,77,0.6);
+}
+
+/* Pequena animação para toggle */
+.regra-header.active .toggle-icon {
+  transform: rotate(45deg);
+}
+
+/* ===========================
+   CARD: INVESTIGAÇÃO / PERSEGUIÇÃO / INTERLÚDIO
+=========================== */
+
+/* Mantém estilo dos cards de regras já existentes */
+.regra-conteudo ul.sublista {
+  list-style: disc;
+  margin-left: 18px;
+  color: #ddd;
+  line-height: 1.5;
+}
+
+.regra-conteudo ul.sublista li {
+  margin-bottom: 6px;
+}
+
+.regra-conteudo ul.sublista li b {
+  color: #ff4d4d;
+}
+
+/* Mantém consistência visual do toggle */
+.regra-conteudo p {
+  margin-bottom: 10px;
+  color: #ddd;
+}
