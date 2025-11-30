@@ -827,3 +827,44 @@ svg{
   margin-bottom: 10px;
   color: #ddd;
 }
+
+/* ======================
+   RESPONSIVIDADE GERAL
+====================== */
+
+@media (max-width: 900px){
+
+  /* Layout principal */
+  .layout {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  /* Inputs grandes */
+  .names input {
+    width: 100%;
+    max-width: 380px;
+  }
+
+  /* Grids que precisam virar 1 coluna */
+  .info-fields,
+  .game-info,
+  .extra-info,
+  .categorias-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Itens / Habilidades */
+  .ataque-row {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .hab-row {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* Para não estourar */
+  body {
+    padding: 10px;
+  }
+}
