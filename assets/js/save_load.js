@@ -128,23 +128,27 @@
   }
 
   function collectHabilidades() {
-    return $$('.hab-row').map(r => ({
-      nome: r.querySelector('.hab-nome')?.value || '',
-      pd: r.querySelector('.hab-pd')?.value || '',
-      dt: r.querySelector('.hab-dt')?.value || '',
-      descricao: r.querySelector('.hab-desc')?.value || '',
-      pagina: r.querySelector('.hab-pagina')?.value || '',
-      elemento: r.querySelector('.hab-elemento')?.value || ''
-    }));
+      return $$('.hab-row')
+        .map(r => ({
+          nome: r.querySelector('.hab-nome')?.value || '',
+          pd: r.querySelector('.hab-pd')?.value || '',
+          dt: r.querySelector('.hab-dt')?.value || '',
+          descricao: r.querySelector('.hab-desc')?.value || '',
+          pagina: r.querySelector('.hab-pagina')?.value || '',
+          elemento: r.querySelector('.hab-elemento')?.value || ''
+        }))
+        .filter(h => h.nome || h.pd || h.dt || h.descricao || h.pagina || h.elemento);
   }
 
   function collectItens() {
-    return $$('.item-row').map(r => ({
-      nome: r.querySelector('.item-nome')?.value || '',
-      descricao: r.querySelector('.item-desc')?.value || '',
-      quantidade: r.querySelector('.item-qtd')?.value || '',
-      categoria: r.querySelector('.item-cat')?.value || ''
-    }));
+      return $$('.item-row')
+        .map(r => ({
+          nome: r.querySelector('.item-nome')?.value || '',
+          descricao: r.querySelector('.item-desc')?.value || '',
+          quantidade: r.querySelector('.item-qtd')?.value || '',
+          categoria: r.querySelector('.item-cat')?.value || ''
+        }))
+        .filter(i => i.nome || i.descricao || i.quantidade || i.categoria);
   }
 
   function collectCategorias() {
@@ -430,20 +434,15 @@
   // Event wiring
   // ------------------------
   if (btnDownloadJSON) btnDownloadJSON.addEventListener('click', downloadJSON);
-  if (btnLoadJSON && fileInput) {
-    btnLoadJSON.addEventListener('click', () => fileInput.click());
+
+if (fileInput) {
     fileInput.addEventListener('change', e => {
-      const f = e.target.files && e.target.files[0];
-      if (f) handleLoadFile(f);
-      fileInput.value = '';
+        const f = e.target.files && e.target.files[0];
+        if (f) handleLoadFile(f);
+        fileInput.value = '';
     });
-  } else if (fileInput) {
-    fileInput.addEventListener('change', e => {
-      const f = e.target.files && e.target.files[0];
-      if (f) handleLoadFile(f);
-      fileInput.value = '';
-    });
-  }
+}
+
   if (btnExportPDF) btnExportPDF.addEventListener('click', exportPDFsingle);
   if (btnNova) btnNova.addEventListener('click', novaFicha);
 
