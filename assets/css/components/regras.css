@@ -1,0 +1,232 @@
+/* ===========================
+   REGRAS - CARD PRINCIPAL
+=========================== */
+
+.card-regras {
+  margin-top: 25px;
+  background: #0c0c0e;
+  border: 1px solid #2a0000;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* REGRA BOX */
+.card-regras .regra-box {
+  border: 1px solid #2a0000;
+  padding: 12px 16px;
+  margin-top: 14px;
+  border-radius: 10px;
+  background: #111113;
+}
+
+/* ===========================
+   HEADER E TOGGLE
+=========================== */
+
+.regra-header {
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  user-select: none;
+  padding: 4px 0;
+}
+
+.regra-header h3 {
+  color: #ff4d4d;
+  font-size: 18px;
+}
+
+.toggle-icon {
+  font-size: 22px;
+  color: #ff4d4d;
+  line-height: 20px;
+  transition: transform 0.2s ease;
+}
+
+.regra-header.active .toggle-icon {
+  transform: rotate(45deg);
+}
+
+/* ===========================
+   CONTEÚDO EXPANDÍVEL
+=========================== */
+
+.regra-conteudo {
+  display: none;
+  margin-top: 10px;
+  color: #ddd;
+  line-height: 1.45;
+}
+
+.regra-conteudo p {
+  margin-bottom: 10px;
+  color: #ddd;
+}
+
+/* ===========================
+   SUBCARDS
+=========================== */
+
+.regra-conteudo .subcard {
+  border: 1px solid #2a0000;
+  padding: 14px 16px;
+  border-radius: 10px;
+  margin-bottom: 12px;
+  background: #111113;
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.08);
+}
+
+.subtitulo {
+  font-size: 16px;
+  font-weight: 700;
+  color: #ff4d4d;
+  margin-bottom: 6px;
+  text-shadow: 0 0 4px rgba(255, 77, 77, 0.6);
+}
+
+.subtexto {
+  font-size: 14px;
+  color: #ddd;
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+/* ===========================
+   LISTAS ESTILIZADAS
+=========================== */
+
+.sublista,
+.elementos-list {
+  margin-left: 18px;
+  padding-left: 0;
+  list-style: disc;
+  color: #ddd;
+  line-height: 1.45;
+}
+
+.sublista li,
+.elementos-list li {
+  margin-bottom: 6px;
+}
+
+.sublista li b,
+.elementos-list li b {
+  color: #ff4d4d;
+}
+
+/* Cores dos elementos — agora com indicador colorido (bolinha) */
+.elementos-list li {
+  position: relative;
+  padding-left: 20px; /* espaço para o indicador */
+  color: #ddd; /* texto legível sobre fundo escuro */
+}
+
+.elementos-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  box-shadow: 0 0 6px rgba(0,0,0,0.35);
+}
+
+.elementos-list li.sangue::before {
+  background: #ff4d4d; /* vermelho */
+  box-shadow: 0 0 8px rgba(255,77,77,0.18);
+}
+
+.elementos-list li.morte::before {
+  background: #0b0b0b; /* preto / muito escuro */
+  box-shadow: 0 0 6px rgba(0,0,0,0.6);
+}
+
+.elementos-list li.conhecimento::before {
+  background: #ffd700; /* dourado */
+  box-shadow: 0 0 8px rgba(255,215,0,0.12);
+}
+
+.elementos-list li.energia::before {
+  background: linear-gradient(90deg,#00ffff,#6f00ff); /* cyan -> roxo */
+}
+
+/* Opcional: destaque leve no texto para alguns tipos */
+.elementos-list li.sangue { color: #ffb3b3; font-weight:600; }
+.elementos-list li.morte { color: #d7d7d7; font-weight:600; }
+.elementos-list li.conhecimento { color: #ffd700; font-weight:700; }
+.elementos-list li.energia { color: #9ff; font-weight:600; }
+
+/* Colorir também o nome (negrito) dos elementos para maior destaque */
+.elementos-list li.sangue b,
+.elementos-list li.sangue strong {
+  color: #ff4d4d;
+}
+
+.elementos-list li.morte b,
+.elementos-list li.morte strong {
+  color: #bfbfbf;
+}
+
+.elementos-list li.conhecimento b,
+.elementos-list li.conhecimento strong {
+  color: #ffd700;
+  text-shadow: 0 0 6px rgba(255,215,0,0.08);
+}
+
+.elementos-list li.energia b,
+.elementos-list li.energia strong {
+  color: #6ff7ff;
+  text-shadow: 0 0 6px rgba(111,0,255,0.06);
+}
+
+/* Listas numeradas */
+.sublista-ol {
+  margin-left: 20px;
+  color: #ddd;
+}
+
+/* ===========================
+   BOX DE NARRATIVA
+=========================== */
+
+.narrativa-box {
+  margin-top: 10px;
+  padding: 12px;
+  border-left: 3px solid #ff4d4d;
+  background: rgba(255, 77, 77, 0.05);
+  font-size: 13px;
+  line-height: 1.45;
+  color: #f0f0f0;
+}
+
+.narrativa-box h5 {
+  margin-top: 0;
+  font-size: 14px;
+  font-weight: 700;
+  color: #ff4d4d;
+  text-shadow: 0 0 4px rgba(255, 77, 77, 0.6);
+}
+
+/* ===========================
+   ESTILO INNER CONTENT
+=========================== */
+
+.regra-conteudo ul.sublista {
+  list-style: disc;
+  margin-left: 18px;
+  color: #ddd;
+  line-height: 1.5;
+}
+
+.regra-conteudo ul.sublista li {
+  margin-bottom: 6px;
+}
+
+.regra-conteudo ul.sublista li b {
+  color: #ff4d4d;
+}

@@ -1,0 +1,196 @@
+/* ===========================
+   VARIÁVEIS E ESTILOS GLOBAIS
+=========================== */
+
+:root {
+  --bg: #0a0a0c;
+  --card: #111113;
+  --muted: #9b9b9b;
+  --accent: #b60000;
+  --radius: 12px;
+  font-family: "Montserrat", sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: radial-gradient(circle at top, #1a0000, #000);
+  color: #e5e5e5;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  color: #ff1a1a;
+  margin-bottom: 20px;
+  letter-spacing: 3px;
+  font-size: 34px;
+  font-weight: 700;
+}
+
+h2 {
+  margin: 0;
+}
+
+label {
+  color: #ff4d4d;
+  font-size: 13px;
+}
+
+/* ===========================
+   CARD BASE
+=========================== */
+
+.card {
+  background: #111113;
+  border: 1px solid rgba(255, 0, 0, 0.18);
+  padding: 15px;
+  border-radius: var(--radius);
+}
+
+.titulo-secao {
+  margin-top: 0;
+  color: #ff4d4d;
+  text-align: center;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+/* ===========================
+   LAYOUT PRINCIPAL
+=========================== */
+
+.layout {
+  display: flex;
+  gap: 25px;
+  align-items: stretch; /* force columns to match height */
+}
+
+/* Left column fixed width, right column flexible */
+.layout > .card:first-child {
+  flex: 0 0 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+.right-column {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.names {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 25px;
+}
+
+.names input {
+  width: 320px;
+  padding: 10px;
+  background: #0c0c0e;
+  border: 1px solid #2a0000;
+  color: #fff;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+/* ===========================
+   RESPONSIVIDADE GERAL
+=========================== */
+
+@media (max-width: 1200px) {
+  .layout {
+    gap: 20px;
+  }
+
+  body {
+    padding: 18px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .layout {
+    grid-template-columns: 280px 1fr;
+    gap: 18px;
+  }
+
+  .card {
+    padding: 14px;
+  }
+
+  h1 {
+    font-size: 32px;
+    margin-bottom: 18px;
+  }
+}
+
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  body {
+    padding: 12px;
+  }
+
+  h1 {
+    font-size: 28px;
+    margin-bottom: 15px;
+  }
+
+  .card {
+    padding: 13px;
+  }
+
+  .names input {
+    width: 100%;
+    max-width: 380px;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+    overflow-x: hidden;
+  }
+
+  h1 {
+    font-size: 24px;
+    margin-bottom: 12px;
+    letter-spacing: 2px;
+  }
+
+  .names {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 15px;
+  }
+
+  .names input {
+    width: 100%;
+    padding: 12px;
+  }
+
+  .layout {
+    gap: 12px;
+  }
+
+  .card {
+    padding: 12px;
+    border-radius: 10px;
+  }
+
+  .titulo-secao {
+    font-size: 16px;
+    margin-bottom: 12px;
+  }
+}

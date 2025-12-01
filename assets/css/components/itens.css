@@ -1,0 +1,260 @@
+/* ===========================
+   CARD DE ITENS
+=========================== */
+
+.card-itens {
+  grid-column: 1 / -1;
+  margin-top: 25px;
+  padding: 20px;
+  background: #0c0c0e;
+  border: 1px solid #2a0000;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* TÍTULO INTERNO */
+.titulo-sub {
+  color: #ff4d4d;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+/* GRID PRINCIPAL */
+.itens-top {
+  display: grid;
+  grid-template-columns: 1fr 0.9fr;
+  gap: 25px;
+}
+
+/* ===========================
+   CATEGORIAS
+=========================== */
+
+.categorias-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-top: 10px;
+}
+
+.categoria-box {
+  position: relative;
+  height: 55px;
+  background: #111113;
+  border: 1px solid #2a0000;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Algarismo romano visível */
+.categoria-box::before {
+  content: attr(data-romano);
+  position: absolute;
+  font-size: 34px;
+  font-weight: 900;
+  color: #ff4d4d;
+  opacity: 0.5;
+  filter: blur(0.4px);
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+/* Input centralizado */
+.categoria-box input {
+  position: relative;
+  z-index: 2;
+  width: 58%;
+  height: 30px;
+  padding: 4px;
+  background: rgba(14, 14, 16, 0.9);
+  border: 1px solid #2a0000;
+  border-radius: 6px;
+  text-align: center;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translateY(0px);
+}
+
+/* ===========================
+   CARGA
+=========================== */
+
+.carga-card {
+  background: #0d0d10;
+  border: 1px solid #270000;
+  border-radius: 12px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.carga-box label {
+  color: #ff4d4d;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  display: block;
+}
+
+.carga-box input {
+  width: 100%;
+  padding: 7px;
+  background: #111113;
+  border: 1px solid #2a0000;
+  border-radius: 6px;
+  color: white;
+  text-align: center;
+}
+
+/* ===========================
+   LISTA DE ITENS
+=========================== */
+
+.itens-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.item-row {
+  display: grid;
+  grid-template-columns: 1.2fr 2fr 0.4fr 0.35fr 0.15fr;
+  gap: 12px;
+  background: #0c0c0e;
+  border: 1px solid #2a0000;
+  border-radius: 10px;
+  padding: 12px;
+  align-items: center;
+}
+
+.item-row input,
+.item-row textarea {
+  width: 100%;
+  background: #111113;
+  border: 1px solid #2a0000;
+  color: #fff;
+  padding: 8px;
+  border-radius: 6px;
+}
+
+.item-row textarea {
+  height: 48px;
+  resize: vertical;
+}
+
+/* Botão remover item */
+.item-remove {
+  width: 22px;
+  height: 22px;
+  background: #250000;
+  border: 1px solid #550000;
+  color: #ff8080;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* ===========================
+   BOTÃO ADICIONAR
+=========================== */
+
+.btn-add-item {
+  align-self: flex-start;
+  padding: 10px 16px;
+  background: #0e0e10;
+  border: 1px solid #440000;
+  color: #ff4d4d;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.btn-add-item:hover {
+  background: #330000;
+}
+
+/* Responsividade */
+@media (max-width: 1200px) {
+  .itens-top {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .categorias-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 1024px) {
+  .itens-top {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .item-row {
+    grid-template-columns: 1.2fr 1.8fr 0.4fr 0.35fr 0.15fr;
+  }
+}
+
+@media (max-width: 900px) {
+  .itens-top {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .categorias-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  .item-row {
+    grid-template-columns: 1.2fr 1fr 0.4fr 0.3fr 0.15fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .itens-top {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .categorias-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .categoria-box {
+    height: 50px;
+  }
+
+  .item-row {
+    grid-template-columns: 1fr !important;
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .item-row input,
+  .item-row textarea {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .item-row textarea {
+    height: 50px;
+  }
+
+  .item-remove {
+    width: 28px;
+    height: 28px;
+    font-size: 14px;
+  }
+}

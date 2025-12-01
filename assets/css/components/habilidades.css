@@ -1,0 +1,197 @@
+/* ===========================
+   CARD DE HABILIDADES
+=========================== */
+
+.card-habilidades {
+  grid-column: 1 / -1;
+  margin-top: 12px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* Linha de habilidade — 7 COLUNAS */
+.hab-row {
+  grid-auto-rows: auto;
+  display: grid;
+  grid-template-columns:
+    1.4fr   /* Nome */
+    0.5fr   /* PD */
+    0.6fr   /* DT */
+    1.5fr   /* Descrição */
+    0.5fr   /* Página */
+    0.4fr   /* Elemento */
+    0.12fr; /* X */
+  gap: 12px;
+  background: #0c0c0e;
+  border: 1px solid #2a0000;
+  padding: 14px;
+  border-radius: 10px;
+  align-items: center;
+  align-content: center;
+  min-height: 56px;
+}
+
+.hab-row input,
+.hab-row textarea,
+.hab-row select {
+  width: 100%;
+  background: #111113;
+  border: 1px solid #2a0000;
+  color: #fff;
+  padding: 8px;
+  border-radius: 6px;
+}
+
+.hab-row textarea {
+  height: 50px;
+}
+
+/* Campos PD / DT */
+.pd-field,
+.dt-field {
+  text-align: center;
+  font-weight: 600;
+}
+
+/* ===========================
+   ELEMENTO BOX
+=========================== */
+
+.elemento-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Ensure the grid cell centers its content so symbol doesn't stick to the left */
+.hab-row > .elemento-box {
+  justify-self: center;
+}
+
+/* Place the elemento image on its own row below inputs so it doesn't collide with the remove button */
+.hab-row .elemento-box {
+  grid-column: 1 / 7; /* span all input columns, keep the last small column (button) free */
+  grid-row: 2;
+  align-self: center;
+  justify-self: center;
+  width: auto;
+}
+
+.elemento-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-right: 6px; /* separa o ícone do botão remover */
+}
+
+.elemento-box img {
+  width: 44px;
+  height: 44px;
+  opacity: 0.95;
+  filter: drop-shadow(0 0 3px rgba(255, 0, 0, 0.4));
+  transition: 0.25s ease;
+  display: block;
+  margin: 0 auto;
+}
+
+.elemento-box img:hover {
+  transform: scale(1.18);
+}
+
+/* ===========================
+   BOTÃO REMOVER
+=========================== */
+
+.btn-remove {
+  width: 28px;
+  height: 28px;
+  background: linear-gradient(180deg, #b30000, #7a0000);
+  border: 1px solid #ff4d4d;
+  color: #fff;
+  font-size: 13px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  padding: 0;
+  box-shadow: 0 2px 8px rgba(179, 0, 0, 0.35);
+  /* ensure the remove button stays in the last (small) column on the first row */
+  grid-column: 7 / 8;
+  grid-row: 1;
+}
+
+.btn-remove:hover {
+  transform: scale(1.05);
+  background: linear-gradient(180deg, #ff4d4d, #b30000);
+}
+
+.btn-remove:focus {
+  outline: 2px solid rgba(255, 77, 77, 0.30);
+  outline-offset: 2px;
+}
+
+/* Responsividade */
+@media (max-width: 1200px) {
+  .hab-row {
+    grid-template-columns: 1.2fr 0.5fr 0.5fr 1.2fr 0.5fr 0.4fr 0.12fr;
+    gap: 10px;
+    padding: 12px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .hab-row {
+    /* keep elemento and page columns so image doesn't wrap to next line */
+    grid-template-columns: 1fr 0.5fr 0.5fr 1fr 0.5fr 0.4fr 0.12fr;
+    gap: 8px;
+    padding: 10px;
+  }
+
+  .hab-row textarea {
+    height: 40px;
+  }
+}
+
+@media (max-width: 900px) {
+  .hab-row {
+    grid-template-columns: 1.5fr 1fr;
+    gap: 10px;
+    padding: 12px;
+  }
+
+  .pd-field,
+  .dt-field,
+  .elemento-box {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .hab-row {
+    grid-template-columns: 1fr !important;
+    gap: 10px;
+    padding: 12px;
+  }
+
+  .hab-row input,
+  .hab-row textarea,
+  .hab-row select {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .hab-row textarea {
+    height: 60px;
+  }
+
+  .btn-remove {
+    align-self: flex-start;
+    width: 30px;
+    height: 30px;
+  }
+}

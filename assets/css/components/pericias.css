@@ -1,0 +1,70 @@
+/* ===========================
+   PERÍCIAS
+=========================== */
+
+.pericias-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Allow the pericias list to grow and scroll if content overflows
+   so the left card fills the column and keeps consistent height with right column. */
+.pericias-list {
+  flex: 1 1 auto;
+  overflow: auto;
+  padding-right: 6px; /* small padding to avoid scrollbar overlapping text */
+  /* ensure the list doesn't force extra height beyond the right-column */
+  min-height: 0;
+}
+
+.per-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 0, 0, 0.08);
+  gap: 12px;
+}
+
+.per-row span {
+  font-size: 14px;
+  color: #ffb3b3;
+  min-width: 120px;
+}
+
+.per-row input {
+  width: 70px;
+  padding: 8px;
+  text-align: center;
+  background: #0c0c0e;
+  border: 1px solid #2a0000;
+  color: #fff;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.per-row input:focus {
+  border-color: #ff4d4d;
+  box-shadow: 0 0 8px rgba(255, 77, 77, 0.3);
+  background: #111114;
+}
+
+@media (max-width: 768px) {
+  .per-row {
+    padding: 10px 0;
+    flex-wrap: wrap;
+  }
+
+  .per-row input {
+    width: 60px;
+    padding: 6px;
+    font-size: 13px;
+  }
+
+  .per-row span {
+    flex: 1 1 auto;
+    min-width: 100px;
+    font-size: 13px;
+  }
+}

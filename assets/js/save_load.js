@@ -49,26 +49,27 @@
       <input class="hab-dt" placeholder="DT (ex: 25 Vontade)">
       <textarea class="hab-desc" placeholder="Descrição"></textarea>
       <input class="hab-pagina" placeholder="Página (ex: 208 AOP)">
-      <select class="hab-elemento">
-        ${Object.keys(elementos).map(e =>
-          `<option value="${e}">${e || "Nenhum"}</option>`
-        ).join("")}
-      </select>
+      <div class="elemento-cell">
+        <select class="hab-elemento">
+          ${Object.keys(elementos).map(e =>
+            `<option value="${e}">${e || "Nenhum"}</option>`
+          ).join("")}
+        </select>
+        <div class="elemento-box"></div>
+      </div>
       <button class="btn-remove">X</button>
     `;
 
     // Ícone ao lado do select
     const select = div.querySelector(".hab-elemento");
-    const iconBox = document.createElement("div");
-    iconBox.className = "elemento-box";
+    const iconBox = div.querySelector('.elemento-cell .elemento-box');
 
     const img = document.createElement("img");
     img.src = elementos[prefill.elemento || ""] || elementos[""];
-    iconBox.appendChild(img);
-    div.appendChild(iconBox);
+    if (iconBox) iconBox.appendChild(img);
 
     select.addEventListener("change", e => {
-      img.src = elementos[e.target.value] || elementos[""];
+      if (img) img.src = elementos[e.target.value] || elementos[""];
     });
 
     // Remover
@@ -133,6 +134,25 @@
     }));
   }
 
+  function collectPericias() {
+    return $$('.per-row').map(r => ({
+      nome: (r.querySelector('span')?.textContent || '').trim(),
+      valor: r.querySelector('input')?.value || ''
+    }));
+  }
+
+  function collectAtaques() {
+    return $$('.ataque-row').map(r => {
+      const inputs = Array.from(r.querySelectorAll('input'));
+      return {
+        nome: inputs[0]?.value || '',
+        teste: inputs[1]?.value || '',
+        dano: inputs[2]?.value || '',
+        crit: inputs[3]?.value || ''
+      };
+    });
+  }
+
   function collectItens() {
     return $$('.item-row').map(r => ({
       nome:       r.querySelector('.item-nome')?.value || "",
@@ -170,7 +190,24 @@
       },
       atributos:  collectAtributos(),
       habilidades: collectHabilidades(),
-      itens: collectItens()
+      pericias: collectPericias(),
+      ataques: collectAtaques(),
+      itens: collectItens(),
+      categorias: {
+        cat1: $('#cat1')?.value || "",
+        cat2: $('#cat2')?.value || "",
+        cat3: $('#cat3')?.value || "",
+        cat4: $('#cat4')?.value || ""
+      },
+      carga: {
+        atual: $('#carga_atual')?.value || "",
+        max: $('#carga_max')?.value || ""
+      },
+      anotacoes: {
+        aparencia: $('#anot_aparencia')?.value || "",
+        anotacoes: $('#anot_anotacoes')?.value || "",
+        outro: $('#anot_outro')?.value || ""
+      }
     };
   }
 
@@ -187,6 +224,14 @@
       if (el) el.value = m[k] || "";
     });
 
+    // Apply anotacoes (if present under data.anotacoes or data.meta.anotacoes)
+    const anot = data.anotacoes || (data.meta && data.meta.anotacoes) || {};
+    if (anot) {
+      const a1 = $('#anot_aparencia'); if (a1) a1.value = anot.aparencia || '';
+      const a2 = $('#anot_anotacoes'); if (a2) a2.value = anot.anotacoes || '';
+      const a3 = $('#anot_outro'); if (a3) a3.value = anot.outro || '';
+    }
+
     if (data.atributos) {
       Object.keys(data.atributos).forEach(k => {
         const el = document.getElementById(k);
@@ -197,6 +242,58 @@
 
     habilidadesList.innerHTML = "";
     (data.habilidades || []).forEach(h => criarHabilidadeRow(h));
+
+    // Apply perícias (match by name if possible)
+    if (data.pericias && Array.isArray(data.pericias)) {
+      const rows = $$('.per-row');
+      data.pericias.forEach(p => {
+        const name = (p.nome || '').trim().toLowerCase();
+        const match = rows.find(r => (r.querySelector('span')?.textContent || '').trim().toLowerCase() === name);
+        if (match) {
+          const inp = match.querySelector('input');
+          if (inp) inp.value = p.valor || '';
+        }
+      });
+    }
+
+    // Apply ataques: ensure there are enough rows, then fill
+    if (data.ataques && Array.isArray(data.ataques)) {
+      const container = document.querySelector('.ataques-list');
+      if (container) {
+        let rows = Array.from(container.querySelectorAll('.ataque-row'));
+        // add extra rows if needed
+        while (rows.length < data.ataques.length) {
+          const newRow = document.createElement('div');
+          newRow.className = 'ataque-row';
+          newRow.innerHTML = '<input type="text" placeholder="Nome do ataque">\n            <input type="text" placeholder="Teste (ex: 3d20 +5)">\n            <input type="text" placeholder="Dano (ex: 1d8+2)">\n            <input type="text" placeholder="Crítico (ex: 18 x3)">';
+          container.appendChild(newRow);
+          rows = Array.from(container.querySelectorAll('.ataque-row'));
+        }
+
+        data.ataques.forEach((a, i) => {
+          const r = rows[i];
+          if (!r) return;
+          const inputs = r.querySelectorAll('input');
+          if (inputs[0]) inputs[0].value = a.nome || '';
+          if (inputs[1]) inputs[1].value = a.teste || '';
+          if (inputs[2]) inputs[2].value = a.dano || '';
+          if (inputs[3]) inputs[3].value = a.crit || '';
+        });
+      }
+    }
+
+    // Apply categorias (cat1..cat4) and carga
+    if (data.categorias) {
+      ['cat1','cat2','cat3','cat4'].forEach(k => {
+        const el = $('#' + k);
+        if (el && data.categorias[k] !== undefined) el.value = data.categorias[k];
+      });
+    }
+
+    if (data.carga) {
+      const ca = $('#carga_atual'); if (ca) ca.value = (data.carga.atual !== undefined && data.carga.atual !== null) ? data.carga.atual : '';
+      const cm = $('#carga_max'); if (cm) cm.value = (data.carga.max !== undefined && data.carga.max !== null) ? data.carga.max : '';
+    }
 
     itensList.innerHTML = "";
     (data.itens || []).forEach(i => criarItemRow(i));

@@ -1,0 +1,87 @@
+/* ===========================
+   CONTROLES FINAIS (BOTTOM)
+=========================== */
+
+.bottom-controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-top: 40px;
+  padding-bottom: 40px;
+}
+
+/* Botão Adicionar (usado em vários lugares) */
+.btn-add {
+  align-self: flex-start;
+  padding: 10px 16px;
+  background: #0e0e10;
+  border: 1px solid #440000;
+  color: #ff4d4d;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-add:hover {
+  background: #330000;
+  box-shadow: 0 0 12px rgba(255, 77, 77, 0.2);
+  transform: translateY(-2px);
+}
+
+.btn-add:active {
+  transform: translateY(0);
+}
+
+/* Status de Salvamento */
+#save-status {
+  flex-basis: 100%;
+  text-align: center;
+  margin-top: 6px;
+  font-size: 14px;
+  opacity: 0.8;
+  color: #ffb3b3;
+}
+
+/* Responsividade */
+@media (max-width: 1200px) {
+  .bottom-controls {
+    gap: 14px;
+  }
+}
+
+@media (max-width: 900px) {
+  .bottom-controls {
+    gap: 12px;
+  }
+
+  .btn-add {
+    padding: 9px 14px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .bottom-controls {
+    gap: 10px;
+    margin-top: 30px;
+    padding-bottom: 30px;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .btn-add {
+    width: 100%;
+    padding: 12px;
+    font-size: 14px;
+    align-self: stretch;
+  }
+
+  #save-status {
+    flex-basis: 100%;
+    margin-top: 10px;
+    font-size: 13px;
+  }
+}

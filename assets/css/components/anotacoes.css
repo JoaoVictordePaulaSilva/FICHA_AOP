@@ -1,0 +1,56 @@
+/* ===========================
+   ANOTAÇÕES
+=========================== */
+.card-anotacoes {
+  grid-column: 1 / -1;
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.anotacoes-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+}
+
+.anotacao-block {
+  background: #0c0c0e;
+  border: 1px solid #2a0000;
+  border-radius: 10px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.anotacao-block .subtitulo {
+  margin: 0;
+  font-size: 15px;
+  color: #ff4d4d;
+}
+
+.anotacao-block textarea {
+  width: 100%;
+  min-height: 120px;
+  resize: vertical;
+  background: #111113;
+  border: 1px solid #2a0000;
+  color: #e8e8e8;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+@media (max-width: 900px) {
+  .anotacoes-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .anotacoes-grid {
+    grid-template-columns: 1fr;
+  }
+}

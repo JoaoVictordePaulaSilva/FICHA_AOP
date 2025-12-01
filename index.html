@@ -5,12 +5,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Ficha de Ordem Paranormal</title>
 
-<!-- CSS -->
-<link rel="stylesheet" href="assets/css/reset.css">
-<link rel="stylesheet" href="assets/css/base.css">
-<link rel="stylesheet" href="assets/css/layout.css">
-<link rel="stylesheet" href="assets/css/theme.css">
-<link rel="stylesheet" href="assets/css/ficha.css">
+<!-- CSS - Global -->
+<link rel="stylesheet" href="assets/css/global.css">
+
+<!-- CSS - Components -->
+<link rel="stylesheet" href="assets/css/components/nomes.css">
+<link rel="stylesheet" href="assets/css/components/pericias.css">
+<link rel="stylesheet" href="assets/css/components/atributos.css">
+<link rel="stylesheet" href="assets/css/components/informacoes.css">
+<link rel="stylesheet" href="assets/css/components/ataques.css">
+<link rel="stylesheet" href="assets/css/components/habilidades.css">
+<link rel="stylesheet" href="assets/css/components/itens.css">
+<link rel="stylesheet" href="assets/css/components/regras.css">
+<link rel="stylesheet" href="assets/css/components/controles.css">
+<link rel="stylesheet" href="assets/css/components/anotacoes.css">
 
 </head>
 
@@ -162,6 +170,20 @@
       <h2 class="titulo-secao">Ataques</h2>
 
       <div class="ataques-list">
+
+        <div class="ataque-row">
+          <input type="text" placeholder="Nome do ataque">
+          <input type="text" placeholder="Teste (ex: 3d20 +5)">
+          <input type="text" placeholder="Dano (ex: 1d8+2)">
+          <input type="text" placeholder="Crítico (ex: 18 x3)">
+        </div>
+
+        <div class="ataque-row">
+          <input type="text" placeholder="Nome do ataque">
+          <input type="text" placeholder="Teste (ex: 3d20 +5)">
+          <input type="text" placeholder="Dano (ex: 1d8+2)">
+          <input type="text" placeholder="Crítico (ex: 18 x3)">
+        </div>
 
         <div class="ataque-row">
           <input type="text" placeholder="Nome do ataque">
@@ -414,6 +436,34 @@
 
 </div>
 
+
+    <!-- ===========================
+          ANOTAÇÕES
+    =========================== -->
+    <div class="card card-anotacoes">
+      <h2 class="titulo-secao">Anotações</h2>
+
+      <div class="anotacoes-grid">
+        <div class="anotacao-block">
+          <h4 class="subtitulo">Aparência</h4>
+          <textarea id="anot_aparencia" placeholder="Descreva a aparência do personagem..."></textarea>
+        </div>
+
+        <div class="anotacao-block">
+          <h4 class="subtitulo">Anotações</h4>
+          <textarea id="anot_anotacoes" placeholder="Anotações gerais, ligações, ganchos de história..."></textarea>
+        </div>
+
+        <div class="anotacao-block">
+          <h4 class="subtitulo">Outro</h4>
+          <textarea id="anot_outro" placeholder="Outras observações..."></textarea>
+        </div>
+      </div>
+
+    </div>
+
+
+
 <!-- ===========================
       CONTROLES FINAIS
 =========================== -->
@@ -455,3 +505,5 @@
 
 </body>
 </html>
+
+

@@ -1,0 +1,122 @@
+/* ===========================
+   ATRIBUTOS
+=========================== */
+
+.attr-inputs {
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+}
+
+.attr-inputs input {
+  width: 100%;
+  padding: 8px;
+  text-align: center;
+  background: #0c0c0e;
+  border: 1px solid #2a0000;
+  color: #fff;
+  border-radius: 6px;
+}
+
+/* ===========================
+   RODA DE ATRIBUTOS + FUNDO RITUAL
+=========================== */
+
+.attr-wheel-box {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.attr-wheel-box::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("../../img/Geral/Outro_Lado.png");
+  background-size: contain;
+  /* subir a imagem levemente para ajustar com o radar */
+  background-position: center -18px;
+  background-repeat: no-repeat;
+  opacity: 0.20;
+  filter: blur(0.3px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.attr-wheel-box svg {
+  position: relative;
+  z-index: 2;
+}
+
+svg {
+  width: 420px;
+  height: 420px;
+}
+
+#radar-shape {
+  fill: rgba(255, 50, 50, 0.16) !important;
+  stroke: #ff6b6b !important;
+  stroke-width: 2 !important;
+}
+
+#radar-outline {
+  fill: none !important;
+  stroke: #7a0000 !important;
+  stroke-width: 1.5 !important;
+}
+
+#guides polygon {
+  fill: none !important;
+  stroke: #3a0000 !important;
+}
+
+#labels text {
+  fill: #f2f2f2;
+  font-weight: 600;
+  text-shadow: 0 0 4px rgba(255, 0, 0, 0.45);
+}
+
+/* Responsivo SVG */
+@media (max-width: 1024px) {
+  .attr-wheel-box svg {
+    max-width: 360px;
+    max-height: 360px;
+  }
+}
+
+@media (max-width: 900px) {
+  .attr-wheel-box svg {
+    max-width: 300px;
+    max-height: 300px;
+  }
+
+  .attr-inputs {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  svg {
+    width: 280px !important;
+    height: 280px !important;
+  }
+
+  .attr-wheel-box {
+    padding: 15px 0;
+    margin: -10px 0;
+  }
+
+  .attr-inputs {
+    grid-template-columns: repeat(2, 1fr) !important;
+    margin-top: 15px;
+    gap: 8px;
+  }
+
+  .attr-inputs input {
+    padding: 10px 6px;
+    font-size: 14px;
+  }
+}
