@@ -78,6 +78,7 @@
     font-size: 14px;
     align-self: stretch;
     border-radius: 8px;
+    text-align: center;
   }
 
   #save-status {
