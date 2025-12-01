@@ -116,9 +116,14 @@ label {
 }
 
 @media (max-width: 1024px) {
+  /* switch to stacked layout on narrower screens while keeping left column visible */
   .layout {
-    grid-template-columns: 280px 1fr;
+    flex-direction: row; /* keep row but allow shrink */
     gap: 18px;
+  }
+
+  .layout > .card:first-child {
+    flex: 0 0 280px;
   }
 
   .card {
@@ -132,9 +137,16 @@ label {
 }
 
 @media (max-width: 900px) {
+  /* Stack columns vertically on mobile */
   .layout {
-    grid-template-columns: 1fr;
+    flex-direction: column;
     gap: 15px;
+  }
+
+  /* Left column becomes full-width on mobile */
+  .layout > .card:first-child {
+    flex: 0 0 auto;
+    width: 100%;
   }
 
   body {
@@ -182,6 +194,13 @@ label {
 
   .layout {
     gap: 12px;
+    flex-direction: column;
+  }
+
+  /* ensure left column becomes full width on small devices */
+  .layout > .card:first-child {
+    flex: 0 0 auto;
+    width: 100%;
   }
 
   .card {

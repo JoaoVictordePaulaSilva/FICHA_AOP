@@ -46,11 +46,19 @@
 @media (max-width: 900px) {
   .anotacoes-grid {
     grid-template-columns: 1fr 1fr;
+    gap: 14px;
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .anotacoes-grid {
     grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .anotacao-block textarea {
+    min-height: 100px;
+    padding: 10px;
+    font-size: 14px;
   }
 }

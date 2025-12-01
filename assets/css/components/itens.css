@@ -229,7 +229,7 @@
 
   .categorias-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
+    gap: 12px;
   }
 
   .categoria-box {
@@ -238,14 +238,14 @@
 
   .item-row {
     grid-template-columns: 1fr !important;
-    gap: 10px;
-    padding: 10px;
+    gap: 12px;
+    padding: 12px;
   }
 
   .item-row input,
   .item-row textarea {
     font-size: 14px;
-    padding: 8px;
+    padding: 10px;
   }
 
   .item-row textarea {

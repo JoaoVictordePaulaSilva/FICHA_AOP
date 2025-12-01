@@ -58,7 +58,7 @@
 
   .per-row input {
     width: 60px;
-    padding: 6px;
+    padding: 8px;
     font-size: 13px;
   }
 
@@ -66,5 +66,6 @@
     flex: 1 1 auto;
     min-width: 100px;
     font-size: 13px;
+    color: #ffb3b3;
   }
 }

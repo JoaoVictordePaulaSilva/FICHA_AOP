@@ -112,11 +112,11 @@ svg {
   .attr-inputs {
     grid-template-columns: repeat(2, 1fr) !important;
     margin-top: 15px;
-    gap: 8px;
+    gap: 10px;
   }
 
   .attr-inputs input {
-    padding: 10px 6px;
+    padding: 10px;
     font-size: 14px;
   }
 }

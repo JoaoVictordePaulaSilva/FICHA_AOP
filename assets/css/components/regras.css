@@ -230,3 +230,43 @@
 .regra-conteudo ul.sublista li b {
   color: #ff4d4d;
 }
+
+/* ===========================
+   RESPONSIVIDADE
+=========================== */
+
+@media (max-width: 768px) {
+  .card-regras {
+    margin-top: 20px;
+    padding: 15px;
+    gap: 12px;
+  }
+
+  .regra-header h3 {
+    font-size: 16px;
+  }
+
+  .toggle-icon {
+    font-size: 20px;
+  }
+
+  .regra-conteudo {
+    margin-top: 8px;
+    font-size: 13px;
+  }
+
+  .subtitulo {
+    font-size: 14px;
+  }
+
+  .sublista,
+  .elementos-list {
+    font-size: 13px;
+    margin-left: 14px;
+  }
+
+  .narrativa-box {
+    font-size: 12px;
+    padding: 10px;
+  }
+}
