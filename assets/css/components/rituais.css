@@ -1,0 +1,385 @@
+/* ===========================
+   CARD DE RITUAIS
+=========================== */
+
+/* ===========================
+   CARD DE RITUAIS
+=========================== */
+
+@keyframes energiaGlow {
+  0% {
+    border-color: rgba(0, 255, 255, 0.4);
+    box-shadow: inset 0 0 10px rgba(0, 255, 255, 0.15);
+  }
+  50% {
+    border-color: rgba(150, 100, 200, 0.4);
+    box-shadow: inset 0 0 10px rgba(150, 100, 200, 0.15);
+  }
+  100% {
+    border-color: rgba(0, 255, 255, 0.4);
+    box-shadow: inset 0 0 10px rgba(0, 255, 255, 0.15);
+  }
+}
+
+.card-rituais {
+  grid-column: 1 / -1;
+  margin-top: 12px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* ===========================
+   BOX DT DE RITUAIS
+=========================== */
+
+.rituais-dt-box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 12px;
+  background-color: #111113;
+  border: 1px solid #2a0000;
+  border-radius: 6px;
+  margin-bottom: 12px;
+  width: fit-content;
+}
+
+.rituais-dt-box label {
+  font-weight: bold;
+  color: #ff4d4d;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+.rituais-dt-box input {
+  padding: 6px 10px;
+  background-color: #111113;
+  border: 1px solid #2a0000;
+  color: #fff;
+  border-radius: 4px;
+  font-size: 13px;
+  width: 70px;
+  text-align: center;
+}
+
+.rituais-dt-box input:focus {
+  outline: none;
+  border-color: #ff4d4d;
+  background-color: rgba(30, 30, 45, 0.95);
+  box-shadow: 0 0 8px rgba(255, 77, 77, 0.3);
+}
+
+/* ===========================
+   LINHA DE RITUAL — 8 COLUNAS
+=========================== */
+
+.ritual-row {
+  grid-auto-rows: auto;
+  display: grid;
+  grid-template-columns:
+    1.3fr   /* Nome */
+    0.5fr   /* Custo (PD) */
+    1.8fr   /* Descrição */
+    0.9fr   /* Alvo */
+    0.9fr   /* Alcance */
+    1.1fr   /* Resistência */
+    0.8fr   /* Elemento + Ícone */
+    0.12fr; /* X */
+  gap: 12px;
+  background: #0c0c0e;
+  border: 1px solid #1a1a2e;
+  padding: 14px;
+  border-radius: 10px;
+  align-items: center;
+  align-content: center;
+  min-height: 56px;
+  position: relative;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  margin-bottom: 10px;
+}
+
+/* Glow colors based on elemento */
+.ritual-row.elemento-energia {
+  border-color: rgba(0, 255, 255, 0.4);
+  box-shadow: inset 0 0 10px rgba(0, 255, 255, 0.15);
+  animation: energiaGlow 3s ease-in-out infinite;
+}
+
+.ritual-row.elemento-morte {
+  border-color: rgba(50, 50, 50, 0.6);
+  box-shadow: inset 0 0 10px rgba(30, 30, 30, 0.2);
+}
+
+.ritual-row.elemento-sangue {
+  border-color: rgba(255, 100, 100, 0.4);
+  box-shadow: inset 0 0 10px rgba(255, 0, 0, 0.15);
+}
+
+.ritual-row.elemento-conhecimento {
+  border-color: rgba(255, 200, 0, 0.4);
+  box-shadow: inset 0 0 10px rgba(255, 200, 0, 0.15);
+}
+
+.ritual-row.elemento-medo {
+  border-color: rgba(200, 200, 200, 0.4);
+  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+.ritual-row.elemento-transcendencia {
+  border-color: rgba(150, 100, 200, 0.5);
+  box-shadow: inset 0 0 10px rgba(150, 100, 200, 0.2);
+}
+
+.ritual-row input,
+.ritual-row textarea,
+.ritual-row select {
+  width: 100%;
+  background: #111113;
+  border: 1px solid #2a0000;
+  color: #fff;
+  padding: 8px;
+  border-radius: 6px;
+  font-size: 12px;
+}
+
+.ritual-row textarea {
+  height: 50px;
+  resize: vertical;
+}
+
+.ritual-row input:focus,
+.ritual-row textarea:focus,
+.ritual-row select:focus {
+  outline: none;
+  border-color: rgba(150, 100, 200, 0.6);
+  background-color: rgba(30, 30, 45, 0.95);
+  box-shadow: 0 0 6px rgba(150, 100, 200, 0.2);
+}
+
+/* ===========================
+   COLUNA DE ELEMENTO
+=========================== */
+
+.ritual-elemento-col {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+}
+
+.ritual-elemento-col select {
+  flex: 1;
+  min-width: 40px;
+}
+
+.ritual-elemento-col img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  opacity: 0.9;
+  border-radius: 3px;
+}
+
+/* ===========================
+   BOTÃO REMOVER
+=========================== */
+
+.ritual-row .btn-remove {
+  width: 22px;
+  height: 22px;
+  background: #250000;
+  border: 1px solid #550000;
+  color: #ff8080;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.25s;
+  padding: 0;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 10;
+}
+
+.ritual-row .btn-remove:hover {
+  background: #450000;
+  border-color: #ff6666;
+}
+
+.ritual-row .btn-remove:focus {
+  outline: 2px solid rgba(255, 77, 77, 0.30);
+  outline-offset: 2px;
+}
+
+/* ===========================
+   RESPONSIVIDADE
+=========================== */
+
+@media (max-width: 1200px) {
+  .ritual-row {
+    grid-template-columns: 1.2fr 0.5fr 1.6fr 0.8fr 0.8fr 1fr 0.7fr 0.12fr;
+    gap: 10px;
+    padding: 12px;
+  }
+
+  .rituais-dt-box {
+    flex-direction: row;
+  }
+}
+
+@media (max-width: 1024px) {
+  .ritual-row {
+    grid-template-columns: 1fr 0.45fr 1.4fr 0.7fr 0.7fr 0.9fr 0.6fr 0.12fr;
+    gap: 8px;
+    padding: 10px;
+  }
+
+  .ritual-row textarea {
+    height: 40px;
+  }
+
+  .ritual-elemento-col img {
+    width: 24px;
+    height: 24px;
+  }
+
+  .rituais-dt-box {
+    gap: 10px;
+    padding: 7px 10px;
+  }
+
+  .rituais-dt-box label {
+    font-size: 10px;
+  }
+
+  .rituais-dt-box input {
+    width: 60px;
+    padding: 5px 8px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 900px) {
+  .ritual-row {
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+    gap: 10px;
+    padding: 12px;
+    position: relative;
+  }
+
+  .ritual-row input,
+  .ritual-row textarea,
+  .ritual-row select {
+    font-size: 13px;
+  }
+
+  .ritual-row textarea {
+    height: 50px;
+  }
+
+  .rituais-dt-box {
+    width: 100%;
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
+  }
+
+  .rituais-dt-box input {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .ritual-row {
+    grid-template-columns: 1fr !important;
+    gap: 10px;
+    padding: 12px;
+    padding-top: 35px;
+  }
+
+  .ritual-row input,
+  .ritual-row textarea,
+  .ritual-row select {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .ritual-row textarea {
+    height: 60px;
+  }
+
+  .ritual-elemento-col img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .ritual-row .btn-remove {
+    width: 26px;
+    height: 26px;
+    font-size: 12px;
+    top: 6px;
+    right: 6px;
+  }
+
+  .rituais-dt-box {
+    width: 100%;
+    flex-direction: column;
+    gap: 8px;
+    padding: 10px;
+    align-items: flex-start;
+  }
+
+  .rituais-dt-box label {
+    font-size: 11px;
+  }
+
+  .rituais-dt-box input {
+    width: 100%;
+    font-size: 14px;
+    padding: 8px;
+  }
+}
+
+@media (max-width: 420px) {
+  .ritual-row {
+    gap: 8px;
+    padding: 10px;
+    padding-top: 32px;
+  }
+
+  .ritual-row input,
+  .ritual-row textarea,
+  .ritual-row select {
+    font-size: 12px;
+    padding: 8px;
+  }
+
+  .ritual-row textarea {
+    height: 50px;
+  }
+
+  .ritual-elemento-col img {
+    width: 18px;
+    height: 18px;
+  }
+
+  .rituais-dt-box {
+    padding: 8px;
+    gap: 6px;
+  }
+
+  .rituais-dt-box input {
+    width: 100%;
+    font-size: 12px;
+    padding: 6px;
+  }
+}

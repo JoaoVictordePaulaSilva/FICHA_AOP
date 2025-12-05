@@ -18,8 +18,10 @@
 
   // Listas dinâmicas
   const habilidadesList = $('#habilidades-list');
+  const rituaisList     = $('#rituais-list');
   const itensList       = $('#itens-list');
   const addHabBtn       = $('#add-habilidade');
+  const addRitualBtn    = $('#add-ritual');
   const addItemBtn      = $('#add-item');
 
   // ======================
@@ -39,54 +41,19 @@
   // CRIAR HABILIDADE
   // ======================
 
-  function criarHabilidadeRow(prefill = {}) {
-    const div = document.createElement("div");
-    div.className = "hab-row";
+  addHabBtn.addEventListener("click", () => {
+    const newRow = criarHabilidadeRow();
+    habilidadesList.appendChild(newRow);
+  });
 
-    div.innerHTML = `
-      <input class="hab-nome" placeholder="Nome do Poder/Ritual">
-      <input class="hab-pd" placeholder="Custo (ex: 2 PD)">
-      <input class="hab-dt" placeholder="DT (ex: 25 Vontade)">
-      <textarea class="hab-desc" placeholder="Descrição"></textarea>
-      <input class="hab-pagina" placeholder="Página (ex: 208 AOP)">
-      <div class="elemento-cell">
-        <select class="hab-elemento">
-          ${Object.keys(elementos).map(e =>
-            `<option value="${e}">${e || "Nenhum"}</option>`
-          ).join("")}
-        </select>
-        <div class="elemento-box"></div>
-      </div>
-      <button class="btn-remove">X</button>
-    `;
+  // ======================
+  // CRIAR RITUAL
+  // ======================
 
-    // Ícone ao lado do select
-    const select = div.querySelector(".hab-elemento");
-    const iconBox = div.querySelector('.elemento-cell .elemento-box');
-
-    const img = document.createElement("img");
-    img.src = elementos[prefill.elemento || ""] || elementos[""];
-    if (iconBox) iconBox.appendChild(img);
-
-    select.addEventListener("change", e => {
-      if (img) img.src = elementos[e.target.value] || elementos[""];
-    });
-
-    // Remover
-    div.querySelector(".btn-remove").onclick = () => div.remove();
-
-    // Prefill
-    div.querySelector(".hab-nome").value   = prefill.nome   || "";
-    div.querySelector(".hab-pd").value     = prefill.pd     || "";
-    div.querySelector(".hab-dt").value     = prefill.dt     || "";
-    div.querySelector(".hab-desc").value   = prefill.descricao || "";
-    div.querySelector(".hab-pagina").value = prefill.pagina || "";
-    select.value                            = prefill.elemento || "";
-
-    habilidadesList.appendChild(div);
-  }
-
-  addHabBtn.addEventListener("click", () => criarHabilidadeRow());
+  addRitualBtn.addEventListener("click", () => {
+    const newRow = criarRitualRow();
+    rituaisList.appendChild(newRow);
+  });
 
 
   // ======================
@@ -127,10 +94,20 @@
     return $$('.hab-row').map(r => ({
       nome:      r.querySelector('.hab-nome')?.value || "",
       pd:        r.querySelector('.hab-pd')?.value || "",
-      dt:        r.querySelector('.hab-dt')?.value || "",
       descricao: r.querySelector('.hab-desc')?.value || "",
-      pagina:    r.querySelector('.hab-pagina')?.value || "",
-      elemento:  r.querySelector('.hab-elemento')?.value || ""
+      pagina:    r.querySelector('.hab-pagina')?.value || ""
+    }));
+  }
+
+  function collectRituais() {
+    return $$('.ritual-row').map(r => ({
+      nome:        r.querySelector('.ritual-nome')?.value || "",
+      pd:          r.querySelector('.ritual-pd')?.value || "",
+      descricao:   r.querySelector('.ritual-desc')?.value || "",
+      alvo:        r.querySelector('.ritual-alvo')?.value || "",
+      alcance:     r.querySelector('.ritual-alcance')?.value || "",
+      resistencia: r.querySelector('.ritual-resistencia')?.value || "",
+      elemento:    r.querySelector('.ritual-elemento')?.value || ""
     }));
   }
 
@@ -190,6 +167,8 @@
       },
       atributos:  collectAtributos(),
       habilidades: collectHabilidades(),
+      rituais: collectRituais(),
+      rituais_dt: $('#rituais_dt')?.value || "",
       pericias: collectPericias(),
       ataques: collectAtaques(),
       itens: collectItens(),
@@ -241,7 +220,19 @@
     }
 
     habilidadesList.innerHTML = "";
-    (data.habilidades || []).forEach(h => criarHabilidadeRow(h));
+    (data.habilidades || []).forEach(h => {
+      const newRow = criarHabilidadeRow(h);
+      habilidadesList.appendChild(newRow);
+    });
+
+    rituaisList.innerHTML = "";
+    (data.rituais || []).forEach(r => {
+      const newRow = criarRitualRow(r);
+      rituaisList.appendChild(newRow);
+    });
+
+    const rituaisDtEl = $('#rituais_dt');
+    if (rituaisDtEl) rituaisDtEl.value = data.rituais_dt || "";
 
     // Apply perícias (match by name if possible)
     if (data.pericias && Array.isArray(data.pericias)) {
@@ -394,6 +385,7 @@
     });
 
     habilidadesList.innerHTML = "";
+    rituaisList.innerHTML = "";
     itensList.innerHTML = "";
 
     if (typeof updateRadar === "function") updateRadar();

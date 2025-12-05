@@ -15,6 +15,7 @@
 <link rel="stylesheet" href="assets/css/components/informacoes.css">
 <link rel="stylesheet" href="assets/css/components/ataques.css">
 <link rel="stylesheet" href="assets/css/components/habilidades.css">
+<link rel="stylesheet" href="assets/css/components/rituais.css">
 <link rel="stylesheet" href="assets/css/components/itens.css">
 <link rel="stylesheet" href="assets/css/components/regras.css">
 <link rel="stylesheet" href="assets/css/components/controles.css">
@@ -230,13 +231,28 @@
 
 <!-- HABILIDADES -->
 <div class="card card-habilidades">
-  <h2 class="titulo-secao">Habilidades & Rituais</h2>
+  <h2 class="titulo-secao">Habilidades</h2>
 
   <div id="habilidades-list"></div>
 
   <button id="add-habilidade" class="btn-add">+ Adicionar Habilidade</button>
 </div>
 
+
+<!-- RITUAIS -->
+<div class="card card-rituais">
+  <h2 class="titulo-secao">Rituais</h2>
+
+  <!-- Box DT Rituais (sempre visível) -->
+  <div class="rituais-dt-box">
+    <label>DT de Rituais</label>
+    <input type="number" id="rituais_dt" placeholder="Ex: 20" min="0">
+  </div>
+
+  <div id="rituais-list"></div>
+
+  <button id="add-ritual" class="btn-add">+ Adicionar Ritual</button>
+</div>
 
 
 <!-- ITENS -->
@@ -494,6 +510,7 @@
 <script src="assets/js/informacoes.js" defer></script>
 <script src="assets/js/main.js" defer></script>
 <script src="assets/js/habilidades.js" defer></script>
+<script src="assets/js/rituais.js" defer></script>
 <script src="assets/js/itens.js" defer></script>
 
 <!-- libs PDF -->
